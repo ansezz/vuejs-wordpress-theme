@@ -23,6 +23,11 @@ module.exports = function (ctx) {
       remove: []
     },
     build: {
+      env: ctx.dev ? {
+        API_URL: JSON.stringify('http://example.xx/api')
+      } : { // and on build (production):
+        API_URL: JSON.stringify('http://example.xx/api')
+      },
       scopeHoisting: true,
       vueRouterMode: 'history',
       // gzip: true,
@@ -70,8 +75,7 @@ module.exports = function (ctx) {
       ]
     },
     // animations: 'all' --- includes all animations
-    animations: [
-    ],
+    animations: [],
     pwa: {
       cacheExt: 'js,html,css,ttf,eot,otf,woff,woff2,json,svg,gif,jpg,jpeg,png,wav,ogg,webm,flac,aac,mp4,mp3',
       manifest: {
@@ -117,6 +121,13 @@ module.exports = function (ctx) {
     electron: {
       extendWebpack (cfg) {
         // do something with cfg
+        cfg.resolve.alias = {
+          ...cfg.resolve.alias, // This adds the existing alias
+          // Add you own alias like this
+          modules: path.resolve(__dirname, './src/Modules'),
+          mixins: path.resolve(__dirname, './src/mixins'),
+          '@': resolve('src')
+        }
       },
       packager: {
         // OS X / Mac App Store
