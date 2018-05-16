@@ -5,7 +5,7 @@ module.exports = function (ctx) {
     // app plugins (/src/plugins)
     plugins: [
       'i18n',
-      'axios'
+      'http'
     ],
     css: [
       'app.styl'
@@ -24,9 +24,9 @@ module.exports = function (ctx) {
     },
     build: {
       env: ctx.dev ? {
-        API_URL: JSON.stringify('http://example.xx/api')
+        API_URL: JSON.stringify('https://www.laravel-vuejs.com/wp-json/wp/v2/')
       } : { // and on build (production):
-        API_URL: JSON.stringify('http://example.xx/api')
+        API_URL: JSON.stringify('https://www.laravel-vuejs.com/wp-json/wp/v2/')
       },
       scopeHoisting: true,
       vueRouterMode: 'history',
