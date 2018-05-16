@@ -9,11 +9,18 @@
 </style>
 
 <script>
+  import {posts} from './../../services'
+
   export default {
     name: 'blog-index',
     props: ['slug'],
     data () {
-      return {}
+      return {
+        post: null
+      }
+    },
+    mounted () {
+      posts({slug: this.slug}).then(res => console.log(res))
     },
     methods: {}
   }
