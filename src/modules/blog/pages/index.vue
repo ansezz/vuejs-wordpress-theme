@@ -1,58 +1,26 @@
 <template>
   <section>
-    <h1>Index</h1>
-    <ul>
-      <li>Posts</li>
-      <li>
-        <router-link :to="{name : 'blog.post' , params : {slug : 'hello-word'}}"> Hello Word</router-link>
-      </li>
-      <li>
-        <router-link :to="{name : 'blog.post' , params : {slug : 'hello-word-2'}}"> Hello Word 2</router-link>
-      </li>
-    </ul>
-
-    <ul>
-      <li>Categories</li>
-      <li>
-        <router-link :to="{name : 'blog.category' , params : {slug : 'category'}}">Category</router-link>
-      </li>
-      <li>
-        <router-link :to="{name : 'blog.category' , params : {slug : 'category-1'}}">Category 1</router-link>
-      </li>
-      <li>
-        <router-link
-          :to="{name : 'blog.category' , params : {slug : 'category',slug1 : 'sub-category',slug2 : 'sub-sub-category'}}">
-          Sub Sub Category
+    <q-card inline class="q-ma-sm" v-for="(item , key) in posts" :key="key" style="width: 40%">
+      <q-card-media>
+        <router-link :to="{name : 'blog.post' , params : {slug : item.slug}}">
+          <img :src="item.featured_image_src" :alt="item.title.rendred">
         </router-link>
-      </li>
-    </ul>
-    <ul>
-      <li>tags</li>
-      <li>
-        <router-link :to="{name : 'blog.tag' , params : {slug : 'tag'}}">Tag</router-link>
-      </li>
-      <li>
-        <router-link :to="{name : 'blog.tag' , params : {slug : 'tag-1'}}">Tag 1</router-link>
-      </li>
-    </ul>
-    <ul>
-      <li>Author</li>
-      <li>
-        <router-link :to="{name : 'blog.author' , params : {username: 'anass'}}">Anass</router-link>
-      </li>
-      <li>
-        <router-link :to="{name : 'blog.author' , params : {username : 'omar'}}">Omar</router-link>
-      </li>
-    </ul>
-    <ul>
-      <li>Search</li>
-      <li>
-        <router-link :to="{name : 'blog.search' , query : { s: 'laravel' } }">Laravel</router-link>
-      </li>
-      <li>
-        <router-link :to="{name : 'blog.search' , query : { s : 'vuejs' } }">VueJs</router-link>
-      </li>
-    </ul>
+      </q-card-media>
+      <q-card-title>
+        <router-link :to="{name : 'blog.post' , params : {slug : item.slug}}">
+          <span v-html="item.title.rendered"></span>
+        </router-link>
+      </q-card-title>
+      <q-card-main>
+        <p v-html="item.excerpt.rendered"></p>
+      </q-card-main>
+      <q-card-separator/>
+      <q-card-actions>
+        <router-link :to="{name : 'blog.post' , params : {slug : item.slug}}">
+          <q-btn flat color="primary" label="Red more"/>
+        </router-link>
+      </q-card-actions>
+    </q-card>
   </section>
 </template>
 
@@ -63,7 +31,18 @@
   export default {
     name: 'index-blog',
     data () {
-      return {}
+      return {
+        posts: null,
+        loading: false
+      }
+    },
+    mounted () {
+      this.loading = true
+      this.$wp.posts()
+        .then(function (data) {
+          this.posts = data
+          this.loading = true
+        }.bind(this))
     },
     methods: {}
   }

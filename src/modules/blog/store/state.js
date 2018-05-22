@@ -1,4 +1,7 @@
+import {settings} from '../../../config'
+
 export default {
   isLogged: false,
-  user: {}
+  user: {},
+  settings: settings
 }

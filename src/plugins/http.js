@@ -4,6 +4,10 @@ import {API_URL} from './../config'
 // allow use http client without Vue instance
 export const http = axios.create({
   baseURL: API_URL
+  // withCredentials: true,
+  /* headers: {
+    'Cache-Control': 'no-cache'
+  } */
 })
 
 export default ({Vue}) => {

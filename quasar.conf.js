@@ -5,7 +5,8 @@ module.exports = function (ctx) {
     // app plugins (/src/plugins)
     plugins: [
       'i18n',
-      'http'
+      'http',
+      'wpapi'
     ],
     css: [
       'app.styl'
@@ -24,9 +25,11 @@ module.exports = function (ctx) {
     },
     build: {
       env: ctx.dev ? {
-        API_URL: JSON.stringify('https://www.laravel-vuejs.com/wp-json/wp/v2/')
+        API_URL: JSON.stringify('https://www.laravel-vuejs.com/wp-json/wp/v2/'),
+        WP_API_URL: JSON.stringify('https://www.laravel-vuejs.com/wp-json')
       } : { // and on build (production):
-        API_URL: JSON.stringify('https://www.laravel-vuejs.com/wp-json/wp/v2/')
+        API_URL: JSON.stringify('https://www.laravel-vuejs.com/wp-json/wp/v2/'),
+        WP_API_URL: JSON.stringify('https://www.laravel-vuejs.com/wp-json')
       },
       scopeHoisting: true,
       vueRouterMode: 'history',
@@ -64,7 +67,14 @@ module.exports = function (ctx) {
         'QListHeader',
         'QItem',
         'QItemMain',
-        'QItemSide'
+        'QItemSide',
+        'QLayoutFooter',
+        'QCard',
+        'QCardTitle',
+        'QCardMain',
+        'QCardMedia',
+        'QCardSeparator',
+        'QCardActions'
       ],
       directives: [
         'Ripple'

@@ -1,22 +1,25 @@
 <template>
-  <div>
+  <q-layout>
     <app-header></app-header>
-    <main>
+    <drawer></drawer>
+    <q-page-container>
       <router-view></router-view>
-    </main>
+    </q-page-container>
     <app-footer></app-footer>
-  </div>
+  </q-layout>
 </template>
 
 <script>
   import appHeader from './header'
   import appFooter from './footer'
+  import drawer from './drawer'
 
   export default {
     name: 'Layout-default-blog',
     components: {
       appFooter,
-      appHeader
+      appHeader,
+      drawer
     },
     data () {
       return {}

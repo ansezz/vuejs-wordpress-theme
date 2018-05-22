@@ -9,6 +9,18 @@ export default [
         component: () => import('../pages/index'),
         meta: {requiresAuth: false}
       },
+      {
+        path: '/contact-us',
+        name: 'blog.contact',
+        component: () => import('../pages/page/contact'),
+        meta: {requiresAuth: false}
+      },
+      {
+        path: '/about-us',
+        name: 'blog.about',
+        component: () => import('../pages/page/about'),
+        meta: {requiresAuth: false}
+      },
       // search routes
       {
         path: 'search',
@@ -45,7 +57,7 @@ export default [
       },
       // category routes
       {
-        path: 'category/:slug/:slug1?/:slug2?/:slug3*',
+        path: 'category/:slug*',
         name: 'blog.category',
         component: () => import('../pages/category/index'),
         props: true,

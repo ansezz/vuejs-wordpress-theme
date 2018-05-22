@@ -33,5 +33,5 @@ routes.push(
     meta: {}
   }
 )
-console.log(routes)
+
 export default routes

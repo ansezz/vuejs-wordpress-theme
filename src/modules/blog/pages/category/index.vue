@@ -1,10 +1,27 @@
 <template>
-  <section>
-    <h1> Category Index</h1>
-    <h2>{{slug}}</h2>
-    <h3>{{slug1}}</h3>
-    <h4>{{slug2}}</h4>
-    <h3>{{slug3}}</h3>
+  <section v-if="category">
+    <h1> {{category.name}}</h1>
+    <q-card inline class="q-ma-sm" v-for="(item , key) in posts" :key="key" style="width: 40%">
+      <q-card-media>
+        <router-link :to="{name : 'blog.post' , params : {slug : item.slug}}">
+          <img :src="item.featured_image_src" :alt="item.title.rendred">
+        </router-link>
+      </q-card-media>
+      <q-card-title>
+        <router-link :to="{name : 'blog.post' , params : {slug : item.slug}}">
+          <span v-html="item.title.rendered"></span>
+        </router-link>
+      </q-card-title>
+      <q-card-main>
+        <p v-html="item.excerpt.rendered"></p>
+      </q-card-main>
+      <q-card-separator/>
+      <q-card-actions>
+        <router-link :to="{name : 'blog.post' , params : {slug : item.slug}}">
+          <q-btn flat color="primary" label="Red more"/>
+        </router-link>
+      </q-card-actions>
+    </q-card>
   </section>
 </template>
 
@@ -14,9 +31,22 @@
 <script>
   export default {
     name: 'category-index',
-    props: ['slug', 'slug1', 'slug2', 'slug3'],
+    props: ['slug'],
     data () {
-      return {}
+      return {
+        posts: null,
+        category: null
+      }
+    },
+    mounted () {
+      this.$wp.categories().slug(this.slug)
+        .then(function (cats) {
+          this.category = cats[0]
+          return this.$wp.posts().categories(this.category.id)
+        }.bind(this))
+        .then(function (data) {
+          this.posts = data
+        }.bind(this))
     },
     methods: {}
   }

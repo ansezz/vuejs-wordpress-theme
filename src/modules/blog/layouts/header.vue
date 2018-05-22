@@ -1,26 +1,45 @@
 <template>
-  <header>
-    <ul>
-      <li>
-        <router-link :to="{name:'blog.index'}"> Home</router-link>
-      </li>
-      <li>
-        <router-link :to="{name:'blog.login'}"> Login</router-link>
-      </li>
-      <li>
-        <router-link :to="{name:'blog.register'}"> Register</router-link>
-      </li>
-    </ul>
-  </header>
+  <q-layout-header v-model="state" reveal>
+    <!-- header content -->
+    <q-toolbar color="primary">
+      <q-btn
+        flat
+        dense
+        round
+        @click="toggleLeftDrawer"
+        aria-label="Menu"
+      >
+        <q-icon name="menu"/>
+      </q-btn>
+
+      <q-toolbar-title>
+        {{settings.title}}
+        <div slot="subtitle">{{settings.description}}</div>
+      </q-toolbar-title>
+    </q-toolbar>
+  </q-layout-header>
 </template>
 
 <script>
+  import {mapState, mapActions} from 'vuex'
+
   export default {
     name: 'Layout-header-blog',
     data () {
-      return {}
+      return {
+        state: true,
+        reveal: true
+      }
     },
-    methods: {}
+    computed: {
+      ...mapState({
+        leftDrawerOpen: state => state.leftDrawerOpen,
+        settings: state => state.blog.settings
+      })
+    },
+    methods: {
+      ...mapActions(['toggleLeftDrawer'])
+    }
   }
 </script>
 
