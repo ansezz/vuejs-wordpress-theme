@@ -7,13 +7,13 @@
 
 <script>
   export default {
-    name: 'Layout-footer-blog',
-    data () {
-      return {
-        state: true
-      }
-    },
-    methods: {}
+      name: 'Layout-footer-blog',
+      data() {
+          return {
+              state: true
+          }
+      },
+      methods: {}
   }
 </script>
 

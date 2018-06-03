@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'tag-archive',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'tag-archive',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

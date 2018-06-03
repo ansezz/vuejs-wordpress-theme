@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'login',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'login',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

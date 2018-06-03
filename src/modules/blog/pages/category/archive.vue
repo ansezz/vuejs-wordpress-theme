@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'category-archive',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'category-archive',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

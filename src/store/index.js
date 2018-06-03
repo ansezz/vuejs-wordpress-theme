@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import {storeModules} from './../modules.js'
-import {Platform} from 'quasar'
+import { storeModules } from './../modules.js'
+import { Platform } from 'quasar'
 
 Vue.use(Vuex)
 
@@ -10,12 +10,12 @@ const store = new Vuex.Store({
     leftDrawerOpen: Platform.is.desktop
   },
   mutations: {
-    toggleLeftDrawer (state) {
+    toggleLeftDrawer(state) {
       state.leftDrawerOpen = !state.leftDrawerOpen
     }
   },
   actions: {
-    toggleLeftDrawer (context) {
+    toggleLeftDrawer(context) {
       context.commit('toggleLeftDrawer')
     }
   },

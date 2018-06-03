@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'date-index',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'date-index',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

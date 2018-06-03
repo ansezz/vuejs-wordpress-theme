@@ -10,10 +10,10 @@
 
 <script>
   export default {
-    name: 'search-index',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'search-index',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

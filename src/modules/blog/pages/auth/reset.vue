@@ -9,11 +9,11 @@
 
 <script>
   export default {
-    name: 'reset',
-    props: ['token'],
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'reset',
+      props: ['token'],
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

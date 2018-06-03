@@ -1,10 +1,10 @@
-import {routesModules} from './../modules.js'
+import { routesModules } from './../modules.js'
 import _ from 'lodash'
 
 let routes = [
   {
     path: '/default',
-    meta: {layout: 'default', requiresAuth: true},
+    meta: { layout: 'default', requiresAuth: true },
     component: () => import('layouts/default'),
     children: [
       // { path: '', component: () => import('pages/index') }
@@ -12,16 +12,16 @@ let routes = [
   }
 ]
 
-_.forEach(routes, function (route) {
+_.forEach(routes, (route) => {
   if (routesModules[route.meta.layout]) {
-    _.forEach(routesModules[route.meta.layout], function (mroutes) {
+    _.forEach(routesModules[route.meta.layout], (mroutes) => {
       route.children = _.concat(route.children, mroutes)
     })
   }
 })
 
 if (routesModules['noLayout']) {
-  _.forEach(routesModules['noLayout'], function (mroutes) {
+  _.forEach(routesModules['noLayout'], (mroutes) => {
     routes = _.concat(routes, mroutes)
   })
 }

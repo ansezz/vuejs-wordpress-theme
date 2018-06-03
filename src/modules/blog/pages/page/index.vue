@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'page-index',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'page-index',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

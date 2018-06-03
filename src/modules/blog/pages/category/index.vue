@@ -18,7 +18,7 @@
       <q-card-separator/>
       <q-card-actions>
         <router-link :to="{name : 'blog.post' , params : {slug : item.slug}}">
-          <q-btn flat color="primary" label="Red more"/>
+          <q-btn flat color="primary" label="Red more" />
         </router-link>
       </q-card-actions>
     </q-card>
@@ -30,24 +30,30 @@
 
 <script>
   export default {
-    name: 'category-index',
-    props: ['slug'],
-    data () {
-      return {
-        posts: null,
-        category: null
-      }
-    },
-    mounted () {
-      this.$wp.categories().slug(this.slug)
-        .then(function (cats) {
-          this.category = cats[0]
-          return this.$wp.posts().categories(this.category.id)
-        }.bind(this))
-        .then(function (data) {
-          this.posts = data
-        }.bind(this))
-    },
-    methods: {}
+      name: 'category-index',
+      props: ['slug'],
+      data() {
+          return {
+              posts: null,
+              category: null
+          }
+      },
+      mounted() {
+          this.$wp
+              .categories()
+              .slug(this.slug)
+              .then(
+                  function(cats) {
+                      this.category = cats[0]
+                      return this.$wp.posts().categories(this.category.id)
+                  }.bind(this)
+              )
+              .then(
+                  function(data) {
+                      this.posts = data
+                  }.bind(this)
+              )
+      },
+      methods: {}
   }
 </script>

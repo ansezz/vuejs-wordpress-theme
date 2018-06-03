@@ -20,34 +20,36 @@
 
 <script>
   export default {
-    name: 'blog-index',
-    props: ['slug'],
-    data () {
-      return {
-        post: null,
-        categories: null,
-        loading: true
+      name: 'blog-index',
+      props: ['slug'],
+      data() {
+          return {
+              post: null,
+              categories: null,
+              loading: true
+          }
+      },
+      computed: {},
+      mounted() {
+          this.$wp
+              .posts()
+              .slug(this.slug)
+              .then(data => {
+                  this.loading = false
+                  this.post = data[0]
+                  //  this.getCategories()
+              })
+      },
+      methods: {
+          getCategories() {
+              console.log('getCategories')
+              /* if (this.post.categories) {
+                this.$wp.categories().id(this.post.categories[0]).then(data => {
+                  console.log(data)
+                  this.categories = data[0]
+                })
+              } */
+          }
       }
-    },
-    computed: {},
-    mounted () {
-      this.$wp.posts().slug(this.slug).then(data => {
-          this.loading = false
-          this.post = data[0]
-          //  this.getCategories()
-        }
-      )
-    },
-    methods: {
-      getCategories () {
-        console.log('getCategories')
-        /* if (this.post.categories) {
-          this.$wp.categories().id(this.post.categories[0]).then(data => {
-            console.log(data)
-            this.categories = data[0]
-          })
-        } */
-      }
-    }
   }
 </script>

@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Author  archive</h1>
+    <h1>Author archive</h1>
   </section>
 </template>
 
@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'author-archive',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'author-archive',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

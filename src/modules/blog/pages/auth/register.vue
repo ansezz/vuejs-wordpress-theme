@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'register',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'register',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

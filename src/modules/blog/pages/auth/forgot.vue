@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'forgot',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'forgot',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

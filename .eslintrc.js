@@ -28,6 +28,8 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 'off',
 
+    "space-before-function-paren": ["error", "never"],
+
     // allow paren-less arrow functions
     'arrow-parens': 0,
     'one-var': 0,

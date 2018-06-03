@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'comment-index',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'comment-index',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

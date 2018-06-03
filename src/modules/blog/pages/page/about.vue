@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'page-about',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'page-about',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

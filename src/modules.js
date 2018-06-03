@@ -10,7 +10,7 @@ const Modules = require('./../modules')
 * import routes modules
 */
 let routesModules = []
-_.forEach(Modules, function (module) {
+_.forEach(Modules, (module) => {
   if (module.enabled) {
     let filePath = './' + moduleFolder + '/' + module.folder + '/router/routes.js'
     let obj = require(`${filePath}`)
@@ -28,11 +28,11 @@ _.forEach(Modules, function (module) {
 * import i18n modules
 */
 let i18nModules = []
-_.forEach(Modules, function (module) {
+_.forEach(Modules, (module) => {
   if (module.enabled) {
     let filePath = './' + moduleFolder + '/' + module.folder + '/i18n/index.js'
     let obj = require(`${filePath}`)
-    _.forEach(obj.default, function (item, lang) {
+    _.forEach(obj.default, (item, lang) => {
       if (!i18nModules[lang]) {
         i18nModules[lang] = []
       }
@@ -45,7 +45,7 @@ _.forEach(Modules, function (module) {
 * import store modules
 */
 let storeModules = []
-_.forEach(Modules, function (module) {
+_.forEach(Modules, (module) => {
   if (module.enabled) {
     let filePath = './' + moduleFolder + '/' + module.folder + '/store/index.js'
     let obj = require(`${filePath}`)

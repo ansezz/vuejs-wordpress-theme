@@ -1,6 +1,6 @@
 <template>
   <section>
-    <h1>Date  archive</h1>
+    <h1>Date archive</h1>
   </section>
 </template>
 
@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'date-archive',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'date-archive',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

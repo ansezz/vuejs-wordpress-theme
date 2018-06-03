@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'page-contact',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'page-contact',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

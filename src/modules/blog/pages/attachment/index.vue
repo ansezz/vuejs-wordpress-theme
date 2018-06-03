@@ -9,10 +9,10 @@
 
 <script>
   export default {
-    name: 'attachment-index',
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'attachment-index',
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>

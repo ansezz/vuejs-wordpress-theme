@@ -10,11 +10,11 @@
 
 <script>
   export default {
-    name: 'author-index',
-    props: ['username'],
-    data () {
-      return {}
-    },
-    methods: {}
+      name: 'author-index',
+      props: ['username'],
+      data() {
+          return {}
+      },
+      methods: {}
   }
 </script>
