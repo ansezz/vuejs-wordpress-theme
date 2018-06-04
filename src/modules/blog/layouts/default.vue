@@ -106,9 +106,14 @@
     text-align left
 
   // Base
+  :root
+    --default #2C3E50
+    --laravel #F55247
+    --vuejs #42B883
+
   body
     background-color #FAFAFA
-    color #2C3E50
+    color var(--default)
     font-size 14px
     font-family 'Source Sans Pro', system, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif
 

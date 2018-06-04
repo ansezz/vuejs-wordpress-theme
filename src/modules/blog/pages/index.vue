@@ -8,18 +8,14 @@
           </router-link>
         </header>
         <main class="card-main">
-          <router-link :to="{ name: 'blog.post', params: { slug: item.slug } }">
-            <span v-html="item.title.rendered"></span>
-          </router-link>
+
+          <h2 class="card-title">
+            <router-link v-html="item.title.rendered" :to="{ name: 'blog.post', params: { slug: item.slug } }"></router-link>
+          </h2>
           <!-- <q-card-main>
             <p v-html="item.excerpt.rendered"></p>
           </q-card-main> -->
         </main>
-        <!-- <q-card-actions>
-          <router-link :to="{ name: 'blog.post', params: { slug: item.slug } }">
-            <q-btn flat color="primary" label="Red more" />
-          </router-link>
-        </q-card-actions> -->
       </article>
     </div>
   </section>
@@ -55,6 +51,7 @@
     //
 
   .card
+    position relative
     overflow hidden
     margin-bottom 20px
     border-radius 6px
@@ -65,6 +62,12 @@
     &:hover
       box-shadow 0 0 25px rgba(#282F3C, .08), 0 20px 25px rgba(#282F3C, .08), 0 3px 4px rgba(#282F3C, .08)
       transform translate3d(0, -3px, 0)
+
+      .card-image img
+        transform scale(1)
+
+      .card-title a
+        color #000
 
   .card-image
     position relative
@@ -87,8 +90,27 @@
     width 100%
     height 100%
     border none
+    transition .35s transform
+    transform scale(1.02)
     object-fit cover
 
   .card-main
     padding 30px
+
+  .card-title a
+    color var(--default)
+    text-decoration none
+    font-weight 600
+    line-height 20px
+    transition .35s color
+
+    &:before
+      position absolute
+      top 0
+      bottom 0
+      left 0
+      z-index 10
+      width 100%
+      height 100%
+      content ''
 </style>
