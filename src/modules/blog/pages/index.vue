@@ -38,12 +38,15 @@
     },
     mounted() {
       this.loading = true
-      this.$wp.posts().then(
-        function(data) {
-          this.posts = data
-          this.loading = true
-        }.bind(this)
-      )
+      this.$wp.posts()
+        .order('desc')
+        .orderby('date')
+        .then(
+          function(data) {
+            this.posts = data
+            this.loading = true
+          }.bind(this)
+        )
     },
     methods: {}
   }

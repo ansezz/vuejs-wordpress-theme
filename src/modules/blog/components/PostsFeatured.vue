@@ -29,7 +29,7 @@
       this.loading = true
       this.$wp.posts()
         .perPage(this.limit)
-        .order('asc')
+        .order('desc')
         .orderby('date')
         .then(
           function(data) {
