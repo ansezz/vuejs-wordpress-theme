@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <div class="container">
-      <router-link :to="{ name: 'home' }">{{ settings.title }}</router-link>
+      <router-link :to="{ name: 'blog.index' }">{{ settings.title }}</router-link>
       <!-- <p class="navbar-description">{{ settings.description }}</p> -->
       <ul class="header-list">
         <li v-for="(item, index) in settings.menus.header" :key="index">

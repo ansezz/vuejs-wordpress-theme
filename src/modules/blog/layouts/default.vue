@@ -105,6 +105,10 @@
     padding 0
     text-align left
 
+  // Custom
+  a
+    text-decoration none
+
   // Base
   :root
     --default #2C3E50
@@ -118,5 +122,14 @@
     font-family 'Source Sans Pro', system, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif
 
   .container
-    lost-center 1200px 30px
+    lost-center 1000px 30px
+
+    &.is-wide
+      lost-center 1240px 20px
+
+    &.is-fluid
+      lost-center 100% 30px
+
+  .is-paddingless
+    padding 0 !important
 </style>
