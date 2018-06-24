@@ -1,6 +1,6 @@
 lock '3.11.0'
 
-set :application, 'vuejs-wordpress-theme'
+set :application, 'app'
 set :repo_url, 'git@github.com:ansezz/vuejs-wordpress-theme.git'
 set :branch, 'master'
 
@@ -15,7 +15,27 @@ set :ssh_options, {
 
 set :keep_releases, 3
 
-namespace :vuejsWordpressTheme do
+namespace :httpd do
+  task :htaccess do
+    on roles(:server) do
+      if fetch(:stage) == :test
+        upload! "../config/test/.htaccess" , "/home/laravel-vuejs/domains/dev.laravel-vuejs.com/public_html/shared/.htaccess"
+      end
+    end
+  end
+  task :htpasswd do
+     on roles(:server) do
+       upload! "../config/.htpasswd", "/home/laravel-vuejs/domains/dev.laravel-vuejs.com/public_html/shared/.htpasswd"
+     end
+  end
+   task :restart do
+    on roles(:server) do
+      print "Restaring httpd..."
+      execute "sudo service httpd restart"
+    end
+end
+
+namespace :app do
   task :build do
     on roles(:server) do
       within release_path do
@@ -26,4 +46,5 @@ namespace :vuejsWordpressTheme do
 end
 
 
-after "deploy:updating", "vuejsWordpressTheme:build"
+after "deploy:updating", "app:build"
+after "app:build", "httpd:htaccess", "httpd:htpasswd", "httpd:restart"

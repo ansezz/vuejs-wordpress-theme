@@ -9,3 +9,6 @@ role :server, %w{138.68.253.178}
 
 set :deploy_to, '/home/laravel-vuejs/domains/dev.laravel-vuejs.com/public_html'
 
+set :linked_files, %w{.htaccess .htaccess}
+set :linked_files, %w{.htpasswd .htpasswd}
+
