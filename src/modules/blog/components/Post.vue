@@ -2,7 +2,7 @@
   <article class="card is-laravel">
     <header class="card-header">
       <router-link class="card-image" :to="{ name: 'blog.post', params : { slug: item.slug } }">
-        <img :src="item.featured_image_src" :alt="item.title.rendred">
+        <img v-if="item.featured_image_src" :src="item.featured_image_src.large" :alt="item.title.rendred">
       </router-link>
     </header>
     <main class="card-main">

@@ -50,7 +50,14 @@
 
   .header-list
     display flex
+    font-size 13px
 
-  .router-link-exact-active
-    color red
+    & li:not(:last-child)
+      margin-right 20px
+
+  a
+    color var(--default)
+
+  a.router-link-exact-active
+    color var(--laravel)
 </style>

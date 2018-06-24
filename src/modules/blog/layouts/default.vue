@@ -132,4 +132,22 @@
 
   .is-paddingless
     padding 0 !important
+
+  .column
+    &.is-large
+      lost-column 2 / 3 2 20px
+
+    &.is-small
+      lost-column 1 / 3 2 20px
+
+      .pub
+        display flex
+        justify-content center
+        padding 3px
+        border-radius 3px
+        box-shadow 0 0 0 1px rgba(#000, .06)
+
+  .row
+    width 100%
+    lost-center 100% 0
 </style>
