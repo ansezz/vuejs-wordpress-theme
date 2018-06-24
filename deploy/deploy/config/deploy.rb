@@ -28,11 +28,12 @@ namespace :httpd do
        upload! "../config/.htpasswd", "/home/laravel-vuejs/domains/dev.laravel-vuejs.com/public_html/shared/.htpasswd"
      end
   end
-   task :restart do
+  task :restart do
     on roles(:server) do
       print "Restaring httpd..."
       execute "sudo service httpd restart"
     end
+  end
 end
 
 namespace :app do
