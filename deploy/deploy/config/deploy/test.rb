@@ -9,6 +9,5 @@ role :server, %w{138.68.253.178}
 
 set :deploy_to, '/home/laravel-vuejs/domains/dev.laravel-vuejs.com/public_html'
 
-set :linked_files, %w{dist/pwa-mat/.htaccess .htaccess}
-set :linked_files, %w{dist/pwa-mat/.htpasswd .htpasswd}
+set :linked_files, %w{dist/pwa-mat/.htaccess dist/pwa-mat/.htpasswd}
 

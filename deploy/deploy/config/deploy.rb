@@ -19,13 +19,13 @@ namespace :httpd do
   task :htaccess do
     on roles(:server) do
       if fetch(:stage) == :test
-        upload! "../config/test/.htaccess" , "/home/laravel-vuejs/domains/dev.laravel-vuejs.com/public_html/shared/.htaccess"
+        upload! "../config/test/.htaccess" , "/home/laravel-vuejs/domains/dev.laravel-vuejs.com/public_html/shared/dist/pwa-mat/.htaccess"
       end
     end
   end
   task :htpasswd do
      on roles(:server) do
-       upload! "../config/.htpasswd", "/home/laravel-vuejs/domains/dev.laravel-vuejs.com/public_html/shared/.htpasswd"
+       upload! "../config/.htpasswd", "/home/laravel-vuejs/domains/dev.laravel-vuejs.com/public_html/shared/dist/pwa-mat/.htpasswd"
      end
   end
   task :restart do
@@ -44,10 +44,16 @@ namespace :app do
       end
     end
   end
+  task :done do
+      on roles(:server) do
+        print "Done :D"
+      end
+  end
 end
 
 
 after "deploy:updating", "httpd:htaccess"
-after "deploy:updating", "httpd:htpasswd"
-after "deploy:updating", "app:build"
-after "deploy:finished", "httpd:restart"
+after "httpd:htaccess", "httpd:htpasswd"
+after "httpd:htpasswd", "app:build"
+after "app:build", "httpd:restart"
+after "deploy:finished", "app:done"
