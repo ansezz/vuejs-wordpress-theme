@@ -47,7 +47,7 @@ namespace :app do
 end
 
 
+after "deploy:updating", "httpd:htaccess"
+after "deploy:updating", "httpd:htpasswd"
 after "deploy:updating", "app:build"
-after "app:build", "httpd:htaccess"
-after "httpd:htaccess", "httpd:htpasswd"
 after "deploy:finished", "httpd:restart"
