@@ -49,4 +49,4 @@ end
 after "deploy:updating", "app:build"
 after "app:build", "httpd:htaccess"
 after "httpd:htaccess", "httpd:htpasswd"
-after "httpd:htpasswd", "httpd:restart"
+after "deploy:finished", "httpd:restart"
