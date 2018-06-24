@@ -51,9 +51,8 @@ namespace :app do
   end
 end
 
-
-after "deploy:updating", "httpd:htaccess"
-after "httpd:htaccess", "httpd:htpasswd"
-after "httpd:htpasswd", "app:build"
+before 'deploy:symlink:shared', 'httpd:htaccess'
+before 'deploy:symlink:shared', 'httpd:htpasswd'
+after "deploy:updating", "app:build"
 after "app:build", "httpd:restart"
 after "deploy:finished", "app:done"
