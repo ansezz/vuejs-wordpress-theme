@@ -26,4 +26,4 @@ namespace :vuejsWordpressTheme do
 end
 
 
-after "deploy:updating", "medi1NewsSpa:build"
+after "deploy:updating", "vuejsWordpressTheme:build"
