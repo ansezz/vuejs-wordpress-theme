@@ -19,7 +19,7 @@ namespace :vuejsWordpressTheme do
   task :build do
     on roles(:server) do
       within release_path do
-        execute "cd #{release_path} && yarn && yarn build"
+        execute "cd #{release_path} && yarn && quasar build -m pwa"
       end
     end
   end
