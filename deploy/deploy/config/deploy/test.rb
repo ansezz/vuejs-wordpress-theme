@@ -1,7 +1,7 @@
 # Peach env
 
-set :user, "#{`whoami`.strip}"
-#set :user, "root"
+#set :user, "#{`whoami`.strip}"
+set :user, "root"
 
 server '138.68.253.178', user: fetch(:user), roles: %w{app}
 
