@@ -49,18 +49,12 @@
 
 <style lang="stylus" scoped>
   .featured
-    // background-color #FFF
     padding-bottom 30px
     border-bottom 1px solid rgba(#000, .08)
 
   .cards
     padding-bottom 20px
 
-    // .container:hover .card
-    // opacity .5
-
-    // .container:hover .card:hover
-    // opacity 1
     .container
       display grid
       grid-template-columns repeat(3, 1fr)
@@ -71,22 +65,15 @@
     margin 0 !important
     max-width 100% !important
     width 100% !important
+    background-color #2a2a2a
+
+    &:hover >>> .card-title a
+    & >>> .card-title a
+      color #fff !important
 
   .card:first-child
     grid-column 1 / 3
     grid-row 1 / 3
-
-    & >>> .card-image
-      // padding-bottom inital
-      // border-radius 0
-
-    & >>> .card-main
-      // position absolute
-      // top 0
-      // bottom 0
-      // left 0
-      // width 100%
-      // height 100%
 
     & >>> .card-title a
       height 30px * 1
@@ -98,5 +85,5 @@
     & >>> .card-excerpt
       display block
       margin-top 15px
-      color rgba(#000, .55)
+      color rgba(#fff, .8)
 </style>

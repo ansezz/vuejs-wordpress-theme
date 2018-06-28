@@ -36,6 +36,7 @@
     .cards-header
         display flex
         align-items center
+        width 100%
         height 100px
 
     .cards-title
