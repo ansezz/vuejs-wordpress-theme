@@ -2,7 +2,7 @@ lock '3.11.0'
 
 set :application, 'app'
 set :repo_url, 'git@github.com:ansezz/vuejs-wordpress-theme.git'
-set :branch, 'master'
+set :branch, '#{fetch(:branch)}'
 
 set :format, :pretty
 set :log_level, :debug
@@ -19,13 +19,13 @@ namespace :httpd do
   task :htaccess do
     on roles(:server) do
       if fetch(:stage) == :test
-        upload! "../config/test/.htaccess" , "/home/laravel-vuejs/domains/dev.laravel-vuejs.com/public_html/shared/dist/pwa-mat/.htaccess"
+        upload! "../config/test/.htaccess" , "/home/#{fetch(:user)}/domains/#{fetch(:domain)}/public_html/shared/dist/pwa-mat/.htaccess"
       end
     end
   end
   task :htpasswd do
      on roles(:server) do
-       upload! "../config/.htpasswd", "/home/laravel-vuejs/domains/dev.laravel-vuejs.com/public_html/shared/dist/pwa-mat/.htpasswd"
+       upload! "../config/.htpasswd", "/home/#{fetch(:user)}/domains/#{fetch(:domain)}/public_html/shared/dist/pwa-mat/.htpasswd"
      end
   end
   task :restart do
@@ -46,7 +46,7 @@ namespace :app do
   end
   task :done do
       on roles(:server) do
-        print "Done :D"
+        print "Done by user #{fetch(:user)} on #{fetch(:domain)} :D"
       end
   end
 end

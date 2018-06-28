@@ -1,7 +1,11 @@
-# Peach env
 
 #set :user, "#{`whoami`.strip}"
+
 set :user, "laravel-vuejs"
+
+set :branch, "master"
+
+set :domain, "dev.laravel-vuejs.com"
 
 server '138.68.253.178', user: fetch(:user), roles: %w{app}
 
