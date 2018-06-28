@@ -27,7 +27,7 @@
     position relative
     overflow hidden
     margin-bottom 20px
-    padding 10px
+    // padding 10px
     border-radius 6px
     box-shadow 0 0 25px rgba(#282F3C, .05), 0 20px 25px rgba(#282F3C, .05), 0 3px 4px rgba(#282F3C, .05)
     transition .35s transform, .35s box-shadow, .35s opacity
@@ -51,7 +51,7 @@
     // padding-top 56.25%
     padding-top 45%
     width 100%
-    border-radius 6px
+    // border-radius 6px
     box-shadow 0 0 0 1px rgba(#000, .06)
 
     &:before
@@ -71,20 +71,14 @@
     object-fit cover
 
   .card-main
-    padding 15px
+    padding 20px
 
   .card-category
-    position absolute
-    top 20px
-    right 20px
-    background-color var(--default)
-    color #FFF
-
-  .card.is-laravel:hover .card-category
-    background-color var(--laravel)
-
-  .card.is-vuejs:hover .card-category
-    background-color var(--vuejs)
+    display inline-block
+    margin-bottom 10px
+    color var(--laravel)
+    font-weight bold
+    font-size 12px
 
   .card-title a
     display block
